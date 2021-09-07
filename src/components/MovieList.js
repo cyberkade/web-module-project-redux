@@ -5,8 +5,7 @@ import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 const MovieList = (props)=> {
-    console.log(props.movies)
-    const movies = props.movies.movies;
+    const movies = props.movies;
 
     return (
         <div className="col">
@@ -35,7 +34,7 @@ const MovieList = (props)=> {
 
 const mapToStateProps = (state) => {
     return({
-      movies: state.movies  
+      movies: state.movies.movies 
     })
 }
 

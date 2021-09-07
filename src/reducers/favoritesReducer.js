@@ -1,17 +1,18 @@
-import {  } from '../actions/movieActions.js';
+import { TOGGLE_FAVORITES, ADD_FAVORITES, REMOVE_FAVORITE } from '../actions/favoritesActions.js';
 import movies from './../data.js';
 
 const initialState = {
-    favorites: [movies],
+    favorites: movies,
     displayFavorites: true
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        // case DELETE_MOVIE:
-        //     return {
-        //         movies: state.movies.filter(item=>(action.payload !== item.id))
-        //     }
+        case TOGGLE_FAVORITES:
+            return {
+                ...state,
+                displayFavorites: !state.displayFavorites
+            }
         default:
             return state;
     }
