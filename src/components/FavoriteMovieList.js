@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom';
 
 const FavoriteMovieList = (props) => {
 
-    console.log(props.favorites)
     const favorites = props.favorites;
     
     const handleDelete = (e, id) => {
-        console.log("Favorite id: ",id);
         e.preventDefault();
-        // const filtered = props.favorites.filter((movie) => movie.id !== Number(id))
         props.removeFavorite(id)
     }
     
@@ -23,7 +20,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span onClick={(e) => handleDelete(e, movie.id)} class="material-icons">remove_circle</span></span>
+                        <span><span onClick={(e) => handleDelete(e, movie.id)} className="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })
@@ -32,7 +29,6 @@ const FavoriteMovieList = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return({
         favorites: state.favoriteMovies.favorites
     })

@@ -22,10 +22,10 @@ const AddMovieForm = (props) => {
         });
     }
 
+    let initialId = 5
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(movie);
-        props.addMovie(movie);
+        props.addMovie({...movie, id: initialId += 1});
         push("/movies/")
     }
 
