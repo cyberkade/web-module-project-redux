@@ -13,6 +13,17 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 displayFavorites: !state.displayFavorites
             }
+        case ADD_FAVORITES:
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload]
+            }
+        case REMOVE_FAVORITE:
+            const filtered = state.favorites.filter((movie) => movie.id !== Number(action.payload) )
+            return {
+                ...state,
+                favorites: filtered
+            }
         default:
             return state;
     }
